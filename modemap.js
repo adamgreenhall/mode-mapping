@@ -219,15 +219,17 @@ var modemap = function() {
             var map = mapping.init(map_id, center, default_zoom)
 
             for (var i=0; i<content.length; i++) {
-                L.circleMarker(
-                    [content[i][lat_col], content[i][lng_col]],
-                    {
-                        radius: radius_fun ? radius_fun(content, i) : 2,
-                        weight: 1,
-                        color: "#000000",
-                        opacity: 1,
-                        fillOpacity: 0.5,
-                        fillColor: color_fun ? color_fun(content, i) : "#FF0000"
+                if (content[i][lat_col] && content[i][lng_col]) { // only if non-null
+                    L.circleMarker(
+                        [content[i][lat_col], content[i][lng_col]],
+                        {
+                            radius: radius_fun ? radius_fun(content, i) : 2,
+                            weight: 1,
+                            color: "#000000",
+                            opacity: 1,
+                            fillOpacity: 0.5,
+                            fillColor: color_fun ? color_fun(content, i) : "#FF0000"
+                        }
                     }
                 ).addTo(map)
             }
