@@ -230,8 +230,8 @@ var modemap = function() {
                             fillOpacity: 0.5,
                             fillColor: color_fun ? color_fun(content, i) : "#FF0000"
                         }
-                    }
-                ).addTo(map)
+                    ).addTo(map)
+                }
             }
 
             return map
